@@ -5,7 +5,7 @@
 	--accent:#06b6d4;
 	--muted:#94a3b8;
 	--text:#e6eef8;
-	--header-height:64px; /* Adjust this value */
+	--header-height:0px; /* Adjust this value */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -58,7 +58,11 @@ body{
 .section p{color:var(--muted);line-height:1.55;font-size:18px}
 
 /* Distinguish sections visually */
-#section1{background:linear-gradient(180deg,rgba(6,182,212,0.06),transparent)}
+#section1 {
+  background: url('../images/background.jpg') no-repeat center center; /* Replace 'your-image.jpg' with your image file name */
+  background-size: cover; /* Ensures the image covers the entire section */
+  padding: 0; /* Remove padding to let the image take full space */
+}
 #section2{background:linear-gradient(180deg,rgba(124,58,237,0.04),transparent)}
 #section3{background:linear-gradient(180deg,rgba(34,197,94,0.03),transparent)}
 
@@ -70,12 +74,63 @@ body{
 .skip-link:focus{transform:translateY(0)}
 .logo-corner {
     position: fixed;
-  top: 5% ;    /* adjust as needed */
-  left: 0%;   /* adjust as needed */
-  width: 15%;  /* or your preferred size */
+  top: 3% ;    /* adjust as needed */
+  left: 2%;   /* adjust as needed */
+  width: 8%;  /* or your preferred size */
   height: auto;
   z-index: 10; 
   
+}
+.contact-container {
+  position: fixed; 
+  top: 5%;          /* Allows absolute positioning of icons inside */
+  right: -5%; 
+  width:20%;
+  z-index: 10;      /* Keeps the container sized to its content */
+}
+
+.contact-icons {
+  display: flex;                /* Arranges icons in a row */
+  gap: 10px;                    /* Space between icons */
+  opacity: 0;                   /* Icons are hidden by default */
+  pointer-events: none;         /* Prevents clicking when hidden */
+  position: absolute;           /* Positions icons below the link */
+  top: 0;  
+  left: 23%;    
+  width: 20%;              /* Places icons just below the container */
+  transform: translateX(-50%);                   /* Aligns icons to the right */
+  transition: opacity 0.3s; 
+  z-index: 10;    /* Smooth fade-in/out */
+}
+.contact-icons img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.contact-container:hover .contact-icons {
+  opacity: 1;                   /* Shows icons on hover */
+  pointer-events: auto;         /* Allows clicking icons when visible */
+}
+
+.contact-container:hover .contact-link {
+  transform: translateY(-40px); /* Moves the link up on hover */
+  transition: transform 0.3s;   /* Smooth movement */
+}
+
+.contact-link {
+   display: block; 
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 28px;
+  font-weight: 400; /* regular */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s; /* Smooth movement */
 }
 
 /* Mobile menu styles (dropdown) */
