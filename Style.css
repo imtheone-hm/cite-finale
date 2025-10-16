@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500&family=Inter:wght@400&family=Panchang:wght@300;400;500;600;700;800&display=swap');
+
+header {
+  position: relative;
+}
+html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/*body {
+  transform: scale(calc(100vw / 1366));
+  transform-origin: top left;
+  width: 1366px;
+  height: 768px;
+  
+}*/
+.hero-bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('images/backgroud1.jpg'); /* Use your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+ 
+}
+.gradient-bg {
+  width: 100vw;
+  height: 300px; 
+  margin-top: -80px; /* pulls the gradient up to overlap the hero image */
+  background: linear-gradient(180deg, transparent 0%, #292929 25%, #292E45 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.contact-container {
+  position: fixed; 
+  top: 30px;          /* Allows absolute positioning of icons inside */
+  right: 40px; 
+  z-index: 10;      /* Keeps the container sized to its content */
+}
+.logo-corner {
+    position: fixed;
+  top: -40px ;    /* adjust as needed */
+  left: 0px;   /* adjust as needed */
+  width: 247px;  /* or your preferred size */
+  height: auto;
+  z-index: 10; 
+  
+}
+.glass {
+  width: 400px;
+  height: 96px;
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08); /* almost fully transparent */
+  border: 1.5px solid rgba(255,255,255,0.35); /* glass edge */
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+}
+/*.custom-glass {
+/*  width: 320px;         
+  height: 96px;           
+  position: absolute;
+  top: 40px;          
+  left: 50%; 
+  transform: translateX(-50%);    
+  background: rgba(255,255,255,0.2); 
+  border-radius: 30px;   
+}*/
+
+.nav-link {
+  text-decoration: none;
+  padding: 4px 16px;
+  border-radius: 16px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-link,
+.nav-link:visited,
+.nav-link:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav-link {
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  text-decoration: none;
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.nav-center {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: #fff;
+  z-index: 2;
+}
+
+.nav-left, .nav-right {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 60%, transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  z-index: 1;
+}
+
+.nav-left {
+  text-align: right;
+}
+.nav-right {
+  text-align: left;
+}
+.home {
+  display: block;
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+.portfolio {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  background: linear-gradient(90deg, #ffffff 50%, transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.services{
+   font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  background: linear-gradient(270deg, #ffffff 50%, transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.active {
+  /* Optional: highlight the active link */
+  box-shadow: 0 2px 8px rgba(255,255,255,0.12);
+}
+
+.contact-icons {
+  display: flex;                /* Arranges icons in a row */
+  gap: 10px;                    /* Space between icons */
+  opacity: 0;                   /* Icons are hidden by default */
+  pointer-events: none;         /* Prevents clicking when hidden */
+  position: absolute;           /* Positions icons below the link */
+  top: 0;  
+  left: 50%;                  /* Places icons just below the container */
+  transform: translateX(-50%);                   /* Aligns icons to the right */
+  transition: opacity 0.3s; 
+  z-index: 10;    /* Smooth fade-in/out */
+}
+.contact-icons img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.contact-container:hover .contact-icons {
+  opacity: 1;                   /* Shows icons on hover */
+  pointer-events: auto;         /* Allows clicking icons when visible */
+}
+
+.contact-container:hover .contact-link {
+  transform: translateY(-40px); /* Moves the link up on hover */
+  transition: transform 0.3s;   /* Smooth movement */
+}
+
+.contact-link {
+   display: block; 
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 28px;
+  font-weight: 400; /* regular */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s; /* Smooth movement */
+}
+.creat-it{
+  position: fixed; 
+  top: 650px;          /* Allows absolute positioning of icons inside */
+  right: 50px; 
+  z-index: 10;
+  font-family: 'Panchang', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 13px;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0px; 
+
+}
+.hero-title {
+  position: relative;
+  top: 35vh;
+  left: 16vw;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 8.8vw;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.015vw; /* optional: for a modern look */
+}
+.hero1-title {
+  position: absolute;
+  top: 65.36vh;
+  left: 24vw;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 8.8vw;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing:-0.015vw;
+}
+.title{
+ position: absolute;
+  top: 1185px;
+  right: 237px;
+  font-family: 'Panchang', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 13px;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0px;  
+}
+
+.gradient-rectangle {
+  position: absolute;
+  top: 1200px; /* Positioned above title1 */
+  right: 475px;
+  width: 30px; /* Adjust width as needed */
+  height: 15px; /* Adjust height as needed */
+  background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+  border-radius: 0px; /* Optional: adds slight rounded corners */
+}
+
+.title1{
+ position: absolute;
+  top: 1200px;
+  right: 90px;
+  font-family: 'Panchang', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 13px;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0px;  
+}
+/*.service{
+ position: relative;
+  width: 100vw;
+  height: 100vh;
+}*/
+.services-section {
+  position: absolute;
+  top: 120px;
+  right: 82px;
+  width: 100%;
+  padding: 100px 0;
+  background: transparent; /* or match your background */
+}
+
+.services-portfolio {
+  position: absolute;
+   top: 170vh;
+  right: 6vw;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.service-circle {
+  width: 280px;
+  height: 280px;
+  border-radius:20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+   position: relative;
+}
+
+.service-left {
+  position: absolute;
+  top: 150px;
+  right: 850px;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.service-center {
+  position: absolute;
+  top: 40px;
+  right: 425px;
+  z-index: 2;
+  scale: 1.1;
+}
+
+.service-right {
+  position: absolute;
+  top: 150px;
+  right: 0px;
+
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.service-title {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: 'Panchang', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.glass-arrow {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.glass-arrow:hover {
+  transform: scale(1.1);
+}
+
+/* Arrow style */
+.arrow {
+  font-size: 32px;
+  color: white;
+}
+
+/* Position helpers if needed */
+.left {
+    position: absolute;
+    top: 217vh;
+    left: 14vw;
+    transform: rotate(-37deg);
+    z-index: 4;
+}
+.right {
+  position: absolute;
+    top: 217vh;
+    right: 14vw;
+    transform: rotate(37deg);
+    z-index: 4;
+  
+}
+.service-name{
+  position: absolute; 
+  top: 1540px; /* Position inside the image container */
+  left: 520px; /* Position at bottom-left corner */
+  color: white;
+  font-family: 'Panchang', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: left;
+  padding: 5px 10px;
+  border-radius: 8px;
+ 
+  z-index: 10;
+}
+
+.circle-outline {
+  position: absolute;
+  top: 1400px;
+  width: 1450px;
+  height: 725px;
+  background-color: transparent;
+  border-radius: 1450px 1450px 0 0;
+  outline: 2px solid white;
+  outline-offset: -1px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%);
+  z-index: 1;
+}
