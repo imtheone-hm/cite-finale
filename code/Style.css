@@ -40,12 +40,7 @@ html, body {
   overflow: hidden;
   z-index: 1;
 }
-.contact-container {
-  position: fixed; 
-  top: 30px;          /* Allows absolute positioning of icons inside */
-  right: 40px; 
-  z-index: 10;      /* Keeps the container sized to its content */
-}
+
 .logo-corner {
     position: fixed;
   top: -40px ;    /* adjust as needed */
@@ -167,6 +162,12 @@ html, body {
 .active {
   /* Optional: highlight the active link */
   box-shadow: 0 2px 8px rgba(255,255,255,0.12);
+}
+.contact-container {
+  position: fixed; 
+  top: 30px;          /* Allows absolute positioning of icons inside */
+  right: 40px; 
+  z-index: 10;      /* Keeps the container sized to its content */
 }
 
 .contact-icons {
