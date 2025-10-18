@@ -79,4 +79,36 @@ document.addEventListener('DOMContentLoaded', function(){
     // adjust scrollLeft by offset
     navList.scrollLeft += offset;
   }
+
+  // Carousel functionality
+  const carouselImages = document.querySelectorAll('.carousel-image');
+  const leftArrow = document.querySelector('.left-arrow');
+  const rightArrow = document.querySelector('.right-arrow');
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    carouselImages.forEach((img, index) => {
+      img.classList.remove('active');
+      if (index === currentIndex) {
+        img.classList.add('active');
+      }
+    });
+
+    const offset = -currentIndex * (carouselImages[0].offsetWidth + 16); // Adjust for image width and gap
+    document.querySelector('.carousel-images').style.transform = `translateX(${offset}px)`;
+  }
+
+  leftArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    updateCarousel();
+  });
+
+  rightArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    updateCarousel();
+  });
+
+  // Initialize the carousel
+  updateCarousel();
 });
