@@ -95,8 +95,12 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
 
-    const offset = -currentIndex * (carouselImages[0].offsetWidth + 16); // Adjust for image width and gap
-    document.querySelector('.carousel-images').style.transform = `translateX(${offset}px)`;
+    // Calculate the offset to center the active image
+    const carouselContainer = document.querySelector('.carousel-images');
+    const imageWidth = carouselImages[0].offsetWidth + 16; // Image width + gap
+    const offset = -currentIndex * imageWidth + (carouselContainer.offsetWidth - imageWidth) / 2;
+
+    carouselContainer.style.transform = `translateX(${offset}px)`;
   }
 
   leftArrow.addEventListener('click', () => {
