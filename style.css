@@ -312,7 +312,24 @@ body {
 
 /* Mobile menu styles (dropdown) */
  @media (max-width:640px) {
-  .nav-list {
+ 
+ .contact-container {
+    position: absolute; /* Change to absolute positioning */
+    bottom: 5%; /* Move to the bottom of the page */
+    top: auto; /* Remove the top positioning */
+    right: 50%; /* Center horizontally */
+    transform: translateX(50%); /* Adjust horizontal alignment */
+    width: auto; /* Adjust width for smaller screens */
+  }
+
+  .contact-icons {
+    flex-direction: row; /* Ensure icons stay in a row */
+    justify-content: center; /* Center icons */
+    gap: 8px; /* Adjust spacing between icons */
+    top: 10%; /* Remove top positioning */
+    left: 40%; /* Center horizontally */
+    transform: none;
+  } .nav-list {
     display: none
   }
 

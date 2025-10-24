@@ -1,15 +1,3 @@
-// Detect if the site is being accessed on a mobile device
-const isMobile = window.innerWidth <= 640 || /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
-
-// Log the result (for debugging purposes)
-console.log('Is Mobile:', isMobile);
-console.log('Body Classes:', document.body.classList);
-
-// Apply mobile-specific design if `isMobile` is true
-if (isMobile) {
-  document.body.classList.add('mobile-design'); // Add a class to the body for mobile-specific styles
-}
-
 // Smooth-scrolling and scrollspy
 document.addEventListener('DOMContentLoaded', function(){
   const links = Array.from(document.querySelectorAll('.nav-link'));
