@@ -9,10 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // Add a click event listener to each link
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
-    // Add a timeout to remove the focus outline after 1 second
-    setTimeout(() => {
-      link.blur(); // Removes focus from the link
-    }, 500); // 1000ms = 1 second
+    link.blur(); // Immediately removes focus from the link
   });
 });
   // Click handling: smooth scroll (native smooth is enabled via CSS)

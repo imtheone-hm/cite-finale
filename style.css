@@ -109,6 +109,16 @@ body {
   -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
 }
 
+.nav-link:focus-visible {
+  outline: 3px solid rgba(6, 182, 212, 0.12); /* Circular outline */
+  outline-offset: 4px; /* Space between the outline and the button */
+  transition: outline 0.3s ease; /* Smooth transition */
+}
+
+.nav-link:focus {
+  outline: none; /* Remove focus outline for touch interactions */
+}
+
 /* Sections - full viewport height */
 .section {
   min-height: 100vh;
@@ -380,9 +390,7 @@ body {
 }
 
 .nav-link:focus {
-  outline: 3px solid rgba(6, 182, 212, 0.12);
-  outline-offset: 4px;
-  transition: outline 0.3s ease; /* Smooth transition */
+  outline: none; /* Remove focus outline for touch interactions */
 }
 
 /* ensure main content isn't hidden behind the fixed header */
