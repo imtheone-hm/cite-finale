@@ -4,7 +4,17 @@ document.addEventListener('DOMContentLoaded', function(){
   const navList = document.querySelector('.nav-list');
   const toggle = document.querySelector('.nav-toggle');
   const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+  const navLinks = document.querySelectorAll('.nav-link');
 
+// Add a click event listener to each link
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    // Add a timeout to remove the focus outline after 1 second
+    setTimeout(() => {
+      link.blur(); // Removes focus from the link
+    }, 500); // 1000ms = 1 second
+  });
+});
   // Click handling: smooth scroll (native smooth is enabled via CSS)
   links.forEach(link => {
     link.addEventListener('click', function(e){
