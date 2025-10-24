@@ -90,28 +90,23 @@ body {
 }
 
 .nav-link {
-  display: block; /* Makes the link behave like a block element */
-  color: #ffffff6b; /* White text color */
-  padding: 8px 24px; /* Adds spacing inside the link */
-  border-radius: 24px; /* Rounded corners */
-  font-family: 'Clash Display', sans-serif; /* Font family for consistency */
-  font-size: 28px; /* Font size */
-  font-weight: 400; /* Regular font weight */
-  text-decoration: none; /* Removes underline */
-  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 20px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 180ms ease;
 }
 
-.nav-link:hover {
-  color: var(--text);
-  transform: translateY(-2px)
-}
-
+.nav-link:hover,
 .nav-link.active {
-background: rgba(255, 255, 255, 0);
-border-radius: 50px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(0px);
--webkit-backdrop-filter: blur(0px);
+  color: var(--text); /* Change text color */
+  transform: translateY(-2px); /* Slight elevation */
+  background: rgba(255, 255, 255, 0.08); /* Glass-like transparency */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  backdrop-filter: blur(8px); /* Light blur effect */
+  -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
 }
 
 /* Sections - full viewport height */
@@ -316,32 +311,17 @@ backdrop-filter: blur(0px);
 }
 
 /* Mobile menu styles (dropdown) */
-@media (max-width:640px) {
-  .nav-list {
-    display: none
+/*@media (max-width:640px) {
+  body.mobile-design .topbar {
+    height: 64px;
+    padding: 8px 16px;
   }
 
-  .nav-toggle {
-    display: inline-flex
-  }
-
-  .section .content {
-    padding: 28px
-  }
-
-  .topbar {
-    padding: 6px 0
-  }
-
-  .nav {
-    padding: 6px 12px
-  }
-
-  .section {
-    padding: 56px 18px
-  }
-}
-
+  body.mobile-design .nav-link {
+    font-size: 18px;
+    padding: 6px 12px;
+ }
+}*/
 /* small helper for anchor offset on browsers that don't support scroll-margin */
 .nav-list.mobile-open {
   position: absolute;
@@ -496,4 +476,30 @@ main {
   font-weight: 400; /* Regular weight */
   color: var(--text); /* Matches the site's text color */
   text-align: center;
+}
+
+/* Mobile-specific styles */
+body.mobile-design {
+  font-size: 16px; /* Adjust font size for smaller screens */
+}
+
+body.mobile-design .topbar {
+  height: 64px; /* Reduce top bar height */
+  padding: 8px 16px; /* Adjust padding */
+}
+
+body.mobile-design .nav-link {
+  font-size: 18px; /* Smaller font size for navigation links */
+  padding: 6px 12px; /* Adjust padding */
+}
+
+body.mobile-design .carousel-images {
+  flex-direction: column; /* Stack images vertically */
+  gap: 12px; /* Adjust spacing between images */
+}
+
+body.mobile-design .glass-arrow {
+  width: 60px; /* Smaller arrows */
+  height: 60px;
+  font-size: 24px; /* Smaller arrow text */
 }

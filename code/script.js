@@ -1,3 +1,15 @@
+// Detect if the site is being accessed on a mobile device
+const isMobile = window.innerWidth <= 640 || /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+
+// Log the result (for debugging purposes)
+console.log('Is Mobile:', isMobile);
+console.log('Body Classes:', document.body.classList);
+
+// Apply mobile-specific design if `isMobile` is true
+if (isMobile) {
+  document.body.classList.add('mobile-design'); // Add a class to the body for mobile-specific styles
+}
+
 // Smooth-scrolling and scrollspy
 document.addEventListener('DOMContentLoaded', function(){
   const links = Array.from(document.querySelectorAll('.nav-link'));
@@ -115,4 +127,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Initialize the carousel
   updateCarousel();
+
+  // Scroll event to update active link
+  document.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.section'); // Select all sections
+    const navLinks = document.querySelectorAll('.nav-link'); // Select all nav links
+
+    let currentSection = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      // Check if the current scroll position is within the section
+      if (window.scrollY >= sectionTop - sectionHeight / 3 && window.scrollY < sectionTop + sectionHeight - sectionHeight / 3) {
+        currentSection = section.getAttribute('id'); // Get the section ID
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove('active'); // Remove the active class from all links
+      if (link.getAttribute('href').includes(currentSection)) {
+        link.classList.add('active'); // Add the active class to the current link
+      }
+    });
+  });
 });
