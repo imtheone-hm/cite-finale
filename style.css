@@ -311,17 +311,19 @@ body {
 }
 
 /* Mobile menu styles (dropdown) */
-/*@media (max-width:640px) {
-  body.mobile-design .topbar {
-    height: 64px;
-    padding: 8px 16px;
+ @media (max-width:640px) {
+  .nav-list {
+    display: none
   }
 
-  body.mobile-design .nav-link {
-    font-size: 18px;
-    padding: 6px 12px;
+  .nav-toggle {
+    display: inline-flex
+  }
+
+  .section .content {
+    padding: 28px
  }
-}*/
+}
 /* small helper for anchor offset on browsers that don't support scroll-margin */
 .nav-list.mobile-open {
   position: absolute;
@@ -479,27 +481,3 @@ main {
 }
 
 /* Mobile-specific styles */
-body.mobile-design {
-  font-size: 16px; /* Adjust font size for smaller screens */
-}
-
-body.mobile-design .topbar {
-  height: 64px; /* Reduce top bar height */
-  padding: 8px 16px; /* Adjust padding */
-}
-
-body.mobile-design .nav-link {
-  font-size: 18px; /* Smaller font size for navigation links */
-  padding: 6px 12px; /* Adjust padding */
-}
-
-body.mobile-design .carousel-images {
-  flex-direction: column; /* Stack images vertically */
-  gap: 12px; /* Adjust spacing between images */
-}
-
-body.mobile-design .glass-arrow {
-  width: 60px; /* Smaller arrows */
-  height: 60px;
-  font-size: 24px; /* Smaller arrow text */
-}
