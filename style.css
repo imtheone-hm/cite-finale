@@ -128,7 +128,7 @@ body {
 
 /* Distinguish sections visually */
 #section1 {
-  background: url('../images/background.jpg') no-repeat center center;
+  background: url('images/background.jpg') no-repeat center center;
   /* Replace 'your-image.jpg' with your image file name */
   background-size: cover;
   /* Ensures the image covers the entire section */
