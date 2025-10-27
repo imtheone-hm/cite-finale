@@ -101,22 +101,32 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text); /* Change text color */
-  transform: translateY(-2px); /* Slight elevation */
-  background: rgba(255, 255, 255, 0.08); /* Glass-like transparency */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
-  backdrop-filter: blur(8px); /* Light blur effect */
-  -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
+  color: var(--text);
+  /* Change text color */
+  transform: translateY(-2px);
+  /* Slight elevation */
+  background: rgba(255, 255, 255, 0.08);
+  /* Glass-like transparency */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Soft shadow */
+  backdrop-filter: blur(8px);
+  /* Light blur effect */
+  -webkit-backdrop-filter: blur(8px);
+  /* Safari compatibility */
 }
 
 .nav-link:focus-visible {
-  outline: 3px solid rgba(6, 182, 212, 0.12); /* Circular outline */
-  outline-offset: 4px; /* Space between the outline and the button */
-  transition: outline 0.3s ease; /* Smooth transition */
+  outline: 3px solid rgba(6, 182, 212, 0.12);
+  /* Circular outline */
+  outline-offset: 4px;
+  /* Space between the outline and the button */
+  transition: outline 0.3s ease;
+  /* Smooth transition */
 }
 
 .nav-link:focus {
-  outline: none; /* Remove focus outline for touch interactions */
+  outline: none;
+  /* Remove focus outline for touch interactions */
 }
 
 /* Sections - full viewport height */
@@ -321,25 +331,43 @@ body {
 }
 
 /* Mobile menu styles (dropdown) */
- @media (max-width:640px) {
- 
- .contact-container {
-    position: absolute; /* Change to absolute positioning */
-    bottom: 5%; /* Move to the bottom of the page */
-    top: auto; /* Remove the top positioning */
-    right: 50%; /* Center horizontally */
-    transform: translateX(50%); /* Adjust horizontal alignment */
-    width: auto; /* Adjust width for smaller screens */
+@media (max-width:640px) {
+
+  .contact-container {
+    
+    /* Change to absolute positioning */
+    bottom: 5%;
+    /* Move to the bottom of the page */
+    top: auto;
+    /* Remove the top positioning */
+    right: 50%;
+    /* Center horizontally */
+    transform: translateX(50%);
+    /* Adjust horizontal alignment */
+    width: auto;
+    /* Adjust width for smaller screens */
+    position: fixed;
+    transition: transform 0.3s ease, bottom 0.3s ease;
+  }
+.contact-container.active {
+  bottom: 20%; /* Move the container up */
+}
+  .contact-icons {
+    flex-direction: row;
+    /* Ensure icons stay in a row */
+    justify-content: center;
+    /* Center icons */
+    gap: 8px;
+    /* Adjust spacing between icons */
+    top: 10%;
+    /* Remove top positioning */
+    left: 40%;
+    /* Center horizontally */
+    transform: none;
+    
   }
 
-  .contact-icons {
-    flex-direction: row; /* Ensure icons stay in a row */
-    justify-content: center; /* Center icons */
-    gap: 8px; /* Adjust spacing between icons */
-    top: 10%; /* Remove top positioning */
-    left: 0%; /* Center horizontally */
-    transform: none;
-  } .nav-list {
+  .nav-list {
     display: none
   }
 
@@ -349,8 +377,9 @@ body {
 
   .section .content {
     padding: 28px
- }
+  }
 }
+
 /* small helper for anchor offset on browsers that don't support scroll-margin */
 .nav-list.mobile-open {
   position: absolute;
@@ -390,7 +419,8 @@ body {
 }
 
 .nav-link:focus {
-  outline: none; /* Remove focus outline for touch interactions */
+  outline: none;
+  /* Remove focus outline for touch interactions */
 }
 
 /* ensure main content isn't hidden behind the fixed header */
@@ -409,38 +439,49 @@ main {
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 400px; /* Adjust height as needed */
+  height: 400px;
+  /* Adjust height as needed */
   overflow: hidden;
 }
 
 .carousel-images {
   display: flex;
-  gap: 16px; /* Space between images */
-  transition: transform 0.5s ease-in-out; /* Smooth rotation effect */
+  gap: 16px;
+  /* Space between images */
+  transition: transform 0.5s ease-in-out;
+  /* Smooth rotation effect */
 }
 
 .carousel-image {
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
+  /* Adjust width as needed */
   height: auto;
-  border-radius: 12px; /* Rounded corners */
-  transition: filter 0.3s ease, transform 0.3s ease; /* Smooth blur and scaling */
+  border-radius: 12px;
+  /* Rounded corners */
+  transition: filter 0.3s ease, transform 0.3s ease;
+  /* Smooth blur and scaling */
 }
 
 .carousel-image:not(.active) {
-  filter: blur(5px); /* Blur effect for non-selected images */
-  transform: scale(0.9); /* Slightly shrink non-selected images */
+  filter: blur(5px);
+  /* Blur effect for non-selected images */
+  transform: scale(0.9);
+  /* Slightly shrink non-selected images */
 }
 
 .carousel-image.active {
-  filter: none; /* Remove blur for the active image */
-  transform: scale(1); /* Keep the active image at full size */
+  filter: none;
+  /* Remove blur for the active image */
+  transform: scale(1);
+  /* Keep the active image at full size */
 }
 
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  background: rgba(255, 255, 255, 0.2);
+  /* Transparent background */
   border: none;
   color: #fff;
   font-size: 24px;
@@ -452,7 +493,8 @@ main {
 }
 
 .carousel-arrow:hover {
-  background: rgba(255, 255, 255, 0.4); /* Slightly darker on hover */
+  background: rgba(255, 255, 255, 0.4);
+  /* Slightly darker on hover */
 }
 
 .left-arrow {
@@ -498,11 +540,15 @@ main {
 }
 
 .carousel-text {
-  margin-top: 8px; /* Space between image and text */
+  margin-top: 8px;
+  /* Space between image and text */
   font-family: 'Clash Display', sans-serif;
-  font-size: 18px; /* Adjust font size */
-  font-weight: 400; /* Regular weight */
-  color: var(--text); /* Matches the site's text color */
+  font-size: 18px;
+  /* Adjust font size */
+  font-weight: 400;
+  /* Regular weight */
+  color: var(--text);
+  /* Matches the site's text color */
   text-align: center;
 }
 

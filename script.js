@@ -147,4 +147,14 @@ navLinks.forEach((link) => {
       }
     });
   });
+
+  // Select the Contact Us container and icons
+  const contactContainer = document.querySelector('.contact-container');
+  const contactIcons = document.querySelector('.contact-icons');
+
+  // Add a click event listener to the Contact Us container
+  contactContainer.addEventListener('click', () => {
+    // Toggle a class to move the container up and reveal the icons
+    contactContainer.classList.toggle('active');
+  });
 });
